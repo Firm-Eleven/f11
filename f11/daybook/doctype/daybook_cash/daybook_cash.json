@@ -1,9 +1,34 @@
 {
- "doctype": "DocType",
- "name": "Daybook Cash",
- "module": "Daybook",
- "is_submittable": 1,
+ "actions": [],
  "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-06-05 16:02:28.599168",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "date",
+  "type",
+  "column_break_dtyl",
+  "attachment",
+  "app_entry_by",
+  "purchase_invoice",
+  "journal_entry_id",
+  "section_break_paue",
+  "payment_entry_id",
+  "party_type",
+  "party",
+  "employee",
+  "employee_name",
+  "party_contact",
+  "city",
+  "party_balance",
+  "amount",
+  "total",
+  "notes",
+  "amended_from",
+  "column_break_mikd"
+ ],
  "fields": [
   {
    "fieldname": "type",
@@ -24,6 +49,7 @@
    "options": "User"
   },
   {
+   "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
@@ -103,7 +129,37 @@
    "fieldtype": "Link",
    "label": "Amended From",
    "options": "Daybook Cash"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "ACC-DC-.YY.-"
+  },
+  {
+   "fieldname": "column_break_dtyl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_paue",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_mikd",
+   "fieldtype": "Column Break"
   }
  ],
- "permissions": []
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-05 16:09:22.828636",
+ "modified_by": "Administrator",
+ "module": "Daybook",
+ "name": "Daybook Cash",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
 }
