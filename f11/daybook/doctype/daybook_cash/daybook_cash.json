@@ -1,69 +1,10 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "field:naming_series",
- "creation": "2026-06-05 00:00:00.000000",
  "doctype": "DocType",
- "editable_grid": 1,
- "engine": "InnoDB",
- "field_order": [
-  "opening_balance",
-  "column_break_oen9a",
-  "closing_balance",
-  "section_break_kvnuk",
-  "type",
-  "purchase_invoice",
-  "app_entry_by",
-  "column_break_vcf4n",
-  "date",
-  "column_break_uxd5h",
-  "naming_series",
-  "column_break_x7fyb",
-  "attachment",
-  "journal_entry_id",
-  "payment_entry_id",
-  "section_break_ja0gp",
-  "party_type",
-  "column_break_3dpod",
-  "party",
-  "employee",
-  "employee_name",
-  "party_contact",
-  "column_break_5aha8",
-  "city",
-  "section_break_ziert",
-  "party_balance",
-  "section_break_mzy53",
-  "amount",
-  "column_break_3sl33",
-  "column_break_u4d3t",
-  "entries",
-  "section_break_rrpbu",
-  "column_break_1ibom",
-  "total",
-  "column_break_xl4zx",
-  "notes",
-  "amended_from"
- ],
+ "name": "Daybook Cash",
+ "module": "Daybook",
+ "is_submittable": 1,
+ "allow_rename": 1,
  "fields": [
-  {
-   "fieldname": "opening_balance",
-   "fieldtype": "Float",
-   "label": "Opening Balance"
-  },
-  {
-   "fieldname": "column_break_oen9a",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "closing_balance",
-   "fieldtype": "Float",
-   "label": "Closing Balance"
-  },
-  {
-   "fieldname": "section_break_kvnuk",
-   "fieldtype": "Section Break"
-  },
   {
    "fieldname": "type",
    "fieldtype": "Select",
@@ -83,27 +24,9 @@
    "options": "User"
   },
   {
-   "fieldname": "column_break_vcf4n",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
-  },
-  {
-   "fieldname": "column_break_uxd5h",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Series",
-   "options": "ACC-DBE-.YYYY.-"
-  },
-  {
-   "fieldname": "column_break_x7fyb",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "attachment",
@@ -114,53 +37,36 @@
    "fieldname": "journal_entry_id",
    "fieldtype": "Link",
    "label": "Journal Entry ID",
-   "options": "Journal Entry",
-   "depends_on": "eval:doc.type == \"Expense\" || doc.party_type == \"Employee\""
+   "options": "Journal Entry"
   },
   {
    "fieldname": "payment_entry_id",
    "fieldtype": "Link",
    "label": "Payment Entry ID",
-   "options": "Payment Entry",
-   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\""
-  },
-  {
-   "fieldname": "section_break_ja0gp",
-   "fieldtype": "Section Break"
+   "options": "Payment Entry"
   },
   {
    "fieldname": "party_type",
    "fieldtype": "Select",
    "label": "Party Type",
-   "options": "\nCustomer\nSupplier\nEmployee",
-   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
-   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\""
-  },
-  {
-   "fieldname": "column_break_3dpod",
-   "fieldtype": "Column Break"
+   "options": "\nCustomer\nSupplier\nEmployee"
   },
   {
    "fieldname": "party",
    "fieldtype": "Dynamic Link",
    "label": "Party",
-   "options": "party_type",
-   "depends_on": "eval:(doc.party_type == \"Customer\" || doc.party_type == \"Supplier\") && (doc.type == \"Pay\" || doc.type == \"Receive\")",
-   "mandatory_depends_on": "eval:(doc.party_type == \"Customer\" || doc.party_type == \"Supplier\") && (doc.type == \"Pay\" || doc.type == \"Receive\")"
+   "options": "party_type"
   },
   {
    "fieldname": "employee",
    "fieldtype": "Link",
    "label": "Employee",
-   "options": "Employee",
-   "depends_on": "eval:doc.type == \"Pay\" && doc.party_type == \"Employee\"",
-   "mandatory_depends_on": "eval:doc.type == \"Pay\" && doc.party_type == \"Employee\""
+   "options": "Employee"
   },
   {
    "fieldname": "employee_name",
    "fieldtype": "Data",
-   "label": "Employee Name",
-   "depends_on": "eval:doc.employee || doc.party_type == \"Employee\""
+   "label": "Employee Name"
   },
   {
    "fieldname": "party_contact",
@@ -168,53 +74,24 @@
    "label": "Party Contact"
   },
   {
-   "fieldname": "column_break_5aha8",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City",
-   "depends_on": "eval:doc.party"
-  },
-  {
-   "fieldname": "section_break_ziert",
-   "fieldtype": "Section Break"
+   "label": "City"
   },
   {
    "fieldname": "party_balance",
    "fieldtype": "Data",
-   "label": "Party Balance",
-   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\""
-  },
-  {
-   "fieldname": "section_break_mzy53",
-   "fieldtype": "Section Break"
+   "label": "Party Balance"
   },
   {
    "fieldname": "amount",
    "fieldtype": "Float",
-   "label": "Amount",
-   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
-   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\""
-  },
-  {
-   "fieldname": "section_break_rrpbu",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_1ibom",
-   "fieldtype": "Column Break"
+   "label": "Amount"
   },
   {
    "fieldname": "total",
    "fieldtype": "Float",
-   "label": "Total",
-   "depends_on": "eval:doc.type == \"Expense\""
-  },
-  {
-   "fieldname": "column_break_xl4zx",
-   "fieldtype": "Column Break"
+   "label": "Total"
   },
   {
    "fieldname": "notes",
@@ -228,9 +105,5 @@
    "options": "Daybook Cash"
   }
  ],
- "index_web_pages_for_search": 1,
- "is_submittable": 1,
- "module": "Accounts",
- "name": "Daybook Cash",
  "permissions": []
 }
