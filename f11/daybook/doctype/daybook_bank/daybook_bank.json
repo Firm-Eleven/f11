@@ -5,15 +5,37 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_ii00",
   "amended_from",
-  "date"
+  "date",
+  "type",
+  "app_entry_by",
+  "attachment",
+  "journal_entry_id",
+  "payment_entry_id",
+  "company_bank",
+  "company_bank_coa",
+  "party_type",
+  "party",
+  "employee",
+  "employee_name",
+  "party_contact",
+  "party_balance",
+  "transfer_type",
+  "amount",
+  "receiving_date",
+  "bank_name",
+  "city",
+  "cheque_date",
+  "cheque_batch",
+  "cheque_title",
+  "cheque_no",
+  "contact",
+  "notes",
+  "reference_no",
+  "reference_date",
+  "total"
  ],
  "fields": [
-  {
-   "fieldname": "section_break_ii00",
-   "fieldtype": "Section Break"
-  },
   {
    "fieldname": "amended_from",
    "fieldtype": "Link",
@@ -29,6 +51,153 @@
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "Expense\nPay\nReceive"
+  },
+  {
+   "fieldname": "app_entry_by",
+   "fieldtype": "Link",
+   "label": "App Entry By",
+   "options": "User"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach Image",
+   "label": "Attachment"
+  },
+  {
+   "fieldname": "journal_entry_id",
+   "fieldtype": "Link",
+   "label": "Journal Entry ID",
+   "options": "Journal Entry"
+  },
+  {
+   "fieldname": "payment_entry_id",
+   "fieldtype": "Link",
+   "label": "Payment Entry ID",
+   "options": "Payment Entry"
+  },
+  {
+   "fieldname": "company_bank",
+   "fieldtype": "Link",
+   "label": "Company Bank Account",
+   "options": "Bank Account"
+  },
+  {
+   "fieldname": "company_bank_coa",
+   "fieldtype": "Link",
+   "label": "Company Bank COA",
+   "options": "Account"
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "label": "Party Type",
+   "options": "Customer\nSupplier\nEmployee"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "party_type"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "party_contact",
+   "fieldtype": "Data",
+   "label": "Party Contact"
+  },
+  {
+   "fieldname": "party_balance",
+   "fieldtype": "Data",
+   "label": "Party Balance"
+  },
+  {
+   "fieldname": "transfer_type",
+   "fieldtype": "Select",
+   "label": "Transfer Type",
+   "options": "Online\nCheque"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "receiving_date",
+   "fieldtype": "Date",
+   "label": "Receiving Date"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Bank"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "cheque_date",
+   "fieldtype": "Date",
+   "label": "Cheque Date"
+  },
+  {
+   "fieldname": "cheque_batch",
+   "fieldtype": "Link",
+   "label": "Cheque Batch",
+   "options": "Cheque Batch"
+  },
+  {
+   "fieldname": "cheque_title",
+   "fieldtype": "Data",
+   "label": "Cheque Title"
+  },
+  {
+   "fieldname": "cheque_no",
+   "fieldtype": "Data",
+   "label": "Cheque No"
+  },
+  {
+   "fieldname": "contact",
+   "fieldtype": "Data",
+   "label": "Contact"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "reference_no",
+   "fieldtype": "Data",
+   "label": "Reference No"
+  },
+  {
+   "fieldname": "reference_date",
+   "fieldtype": "Date",
+   "label": "Reference Date"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Float",
+   "label": "Total"
   }
  ],
  "grid_page_length": 50,
