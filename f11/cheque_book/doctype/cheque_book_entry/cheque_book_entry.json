@@ -5,17 +5,42 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_gayq",
   "date",
   "party_type",
   "party",
-  "section_break_fbru"
+  "type",
+  "receiving_date",
+  "batch_no",
+  "bank_name",
+  "cheque_title",
+  "cheque_no",
+  "cheque_date",
+  "attachment",
+  "city",
+  "bank_account",
+  "amount",
+  "contact_no",
+  "notes",
+  "status",
+  "rejected_status",
+  "assigned_to",
+  "assigned_account",
+  "cheque_receiving",
+  "total_paid",
+  "total_remaining",
+  "issue_date",
+  "assign_date",
+  "reject_date",
+  "clear_date",
+  "complete_date",
+  "close_date",
+  "rejected_cheque_payments",
+  "daybook_bank_id",
+  "payment_entry_id",
+  "journal_entry_id",
+  "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "section_break_gayq",
-   "fieldtype": "Section Break"
-  },
   {
    "default": "Today",
    "fieldname": "date",
@@ -35,8 +60,170 @@
    "options": "party_type"
   },
   {
-   "fieldname": "section_break_fbru",
-   "fieldtype": "Section Break"
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "label": "Type"
+  },
+  {
+   "fieldname": "receiving_date",
+   "fieldtype": "Date",
+   "label": "Receiving Date"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "label": "Batch No",
+   "options": "Cheque Batch"
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "label": "Bank Name",
+   "options": "Bank"
+  },
+  {
+   "fieldname": "cheque_title",
+   "fieldtype": "Data",
+   "label": "Cheque Title"
+  },
+  {
+   "fieldname": "cheque_no",
+   "fieldtype": "Data",
+   "label": "Cheque No"
+  },
+  {
+   "fieldname": "cheque_date",
+   "fieldtype": "Date",
+   "label": "Cheque Date"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "contact_no",
+   "fieldtype": "Data",
+   "label": "Contact No"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "In Hand\nAssigned\nIssued\nCleared\nRejected\nClosed"
+  },
+  {
+   "fieldname": "rejected_status",
+   "fieldtype": "Select",
+   "label": "Rejected Status",
+   "options": "\nPartial\nCompleted"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "assigned_account",
+   "fieldtype": "Data",
+   "label": "Assigned Account"
+  },
+  {
+   "fieldname": "cheque_receiving",
+   "fieldtype": "Attach",
+   "label": "Cheque Receiving"
+  },
+  {
+   "fieldname": "total_paid",
+   "fieldtype": "Int",
+   "label": "Total Paid"
+  },
+  {
+   "fieldname": "total_remaining",
+   "fieldtype": "Int",
+   "label": "Total Remaining"
+  },
+  {
+   "fieldname": "issue_date",
+   "fieldtype": "Date",
+   "label": "Issue Date"
+  },
+  {
+   "fieldname": "assign_date",
+   "fieldtype": "Date",
+   "label": "Assign Date"
+  },
+  {
+   "fieldname": "reject_date",
+   "fieldtype": "Date",
+   "label": "Reject Date"
+  },
+  {
+   "fieldname": "clear_date",
+   "fieldtype": "Date",
+   "label": "Clear Date"
+  },
+  {
+   "fieldname": "complete_date",
+   "fieldtype": "Date",
+   "label": "Complete Date"
+  },
+  {
+   "fieldname": "close_date",
+   "fieldtype": "Date",
+   "label": "Close Date"
+  },
+  {
+   "fieldname": "rejected_cheque_payments",
+   "fieldtype": "Table",
+   "label": "Rejected Cheque Payments",
+   "options": "Rejected Cheque Payments"
+  },
+  {
+   "fieldname": "daybook_bank_id",
+   "fieldtype": "Link",
+   "label": "Daybook Bank ID",
+   "options": "Daybook Bank"
+  },
+  {
+   "fieldname": "payment_entry_id",
+   "fieldtype": "Link",
+   "label": "Payment Entry ID",
+   "options": "Payment Entry"
+  },
+  {
+   "fieldname": "journal_entry_id",
+   "fieldtype": "Link",
+   "label": "Journal Entry ID",
+   "options": "Journal Entry"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "options": "Cheque Book Entry"
   }
  ],
  "grid_page_length": 50,
