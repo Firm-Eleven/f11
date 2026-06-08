@@ -6,33 +6,46 @@
  "engine": "InnoDB",
  "field_order": [
   "amended_from",
-  "date",
   "type",
   "app_entry_by",
+  "column_break_ngpt",
+  "date",
   "attachment",
   "journal_entry_id",
   "payment_entry_id",
+  "section_break_usgj",
   "company_bank",
   "company_bank_coa",
+  "column_break_hexc",
   "party_type",
+  "column_break_czlv",
   "party",
   "employee",
   "employee_name",
   "party_contact",
+  "column_break_wsxn",
   "party_balance",
+  "section_break_fghz",
   "transfer_type",
   "amount",
   "receiving_date",
+  "column_break_xzut",
   "bank_name",
   "city",
   "cheque_date",
   "cheque_batch",
+  "column_break_vgsl",
   "cheque_title",
   "cheque_no",
   "contact",
   "notes",
+  "section_break_mjmy",
   "reference_no",
+  "column_break_fbbt",
   "reference_date",
+  "section_break_zbll",
+  "entries",
+  "section_break_ynbl",
   "total"
  ],
  "fields": [
@@ -50,121 +63,158 @@
    "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "type",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Type",
-   "options": "Expense\nPay\nReceive"
+   "options": "Expense\nPay\nReceive",
+   "reqd": 1
   },
   {
    "fieldname": "app_entry_by",
    "fieldtype": "Link",
    "label": "App Entry By",
-   "options": "User"
+   "options": "User",
+   "read_only": 1
   },
   {
    "fieldname": "attachment",
    "fieldtype": "Attach Image",
-   "label": "Attachment"
+   "label": "Attachment",
+   "reqd": 1
   },
   {
    "fieldname": "journal_entry_id",
    "fieldtype": "Link",
    "label": "Journal Entry ID",
-   "options": "Journal Entry"
+   "options": "Journal Entry",
+   "read_only": 1
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "payment_entry_id",
    "fieldtype": "Link",
    "label": "Payment Entry ID",
-   "options": "Payment Entry"
+   "options": "Payment Entry",
+   "read_only": 1
   },
   {
    "fieldname": "company_bank",
    "fieldtype": "Link",
    "label": "Company Bank Account",
-   "options": "Bank Account"
+   "options": "Bank Account",
+   "reqd": 1
   },
   {
+   "fetch_from": "company_bank.account",
    "fieldname": "company_bank_coa",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Company Bank COA",
    "options": "Account"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "party_type",
    "fieldtype": "Select",
    "label": "Party Type",
-   "options": "Customer\nSupplier\nEmployee"
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
+   "options": "\nCustomer\nSupplier\nEmployee"
   },
   {
+   "depends_on": "eval:doc.party_type == \"Customer\" || doc.party_type == \"Supplier\"",
    "fieldname": "party",
    "fieldtype": "Dynamic Link",
    "label": "Party",
+   "mandatory_depends_on": "eval:doc.party_type == \"Customer\" || doc.party_type == \"Supplier\"",
    "options": "party_type"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" && doc.party_type == \"Employee\"",
    "fieldname": "employee",
    "fieldtype": "Link",
    "label": "Employee",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" && doc.party_type == \"Employee\"",
    "options": "Employee"
   },
   {
+   "depends_on": "employee",
+   "fetch_from": "employee.employee_name",
    "fieldname": "employee_name",
    "fieldtype": "Data",
-   "label": "Employee Name"
+   "label": "Employee Name",
+   "read_only": 1
   },
   {
    "fieldname": "party_contact",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Party Contact"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "party_balance",
    "fieldtype": "Data",
-   "label": "Party Balance"
+   "label": "Party Balance",
+   "read_only": 1
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "transfer_type",
    "fieldtype": "Select",
    "label": "Transfer Type",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "options": "Online\nCheque"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "amount",
    "fieldtype": "Float",
    "label": "Amount"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "receiving_date",
    "fieldtype": "Date",
    "label": "Receiving Date"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "bank_name",
    "fieldtype": "Link",
    "label": "Bank Name",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "options": "Bank"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "city",
    "fieldtype": "Data",
-   "label": "City"
+   "label": "City",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\""
   },
   {
    "fieldname": "cheque_date",
    "fieldtype": "Date",
+   "hidden": 1,
    "label": "Cheque Date"
   },
   {
+   "depends_on": "eval:doc.transfer_type == \"Cheque\" && doc.type == \"Receive\"",
    "fieldname": "cheque_batch",
    "fieldtype": "Link",
    "label": "Cheque Batch",
+   "mandatory_depends_on": "eval:doc.transfer_type == \"Cheque\" && doc.type == \"Receive\"",
    "options": "Cheque Batch"
   },
   {
+   "depends_on": "eval:doc.transfer_type == \"Cheque\"",
    "fieldname": "cheque_title",
    "fieldtype": "Data",
    "label": "Cheque Title"
@@ -172,39 +222,104 @@
   {
    "fieldname": "cheque_no",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Cheque No"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "contact",
    "fieldtype": "Data",
    "label": "Contact"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "notes",
    "fieldtype": "Data",
    "label": "Notes"
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "reference_no",
    "fieldtype": "Data",
-   "label": "Reference No"
+   "label": "Reference No",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\""
   },
   {
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
    "fieldname": "reference_date",
    "fieldtype": "Date",
-   "label": "Reference Date"
+   "label": "Reference Date",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\""
   },
   {
+   "depends_on": "eval:doc.type == \"Expense\"",
    "fieldname": "total",
    "fieldtype": "Float",
-   "label": "Total"
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ngpt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_usgj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_hexc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_czlv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wsxn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_fghz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xzut",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vgsl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_mjmy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_fbbt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_zbll",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.type == \"Expense\"",
+   "fieldname": "entries",
+   "fieldtype": "Table",
+   "label": "Entries",
+   "mandatory_depends_on": "eval:doc.type == \"Expense\"",
+   "options": "Cash Entries"
+  },
+  {
+   "fieldname": "section_break_ynbl",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-05 16:12:46.677212",
+ "modified": "2026-06-08 14:53:53.659994",
  "modified_by": "Administrator",
  "module": "Daybook",
  "name": "Daybook Bank",

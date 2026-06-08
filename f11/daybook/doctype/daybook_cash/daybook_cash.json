@@ -7,27 +7,35 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "date",
   "type",
-  "column_break_dtyl",
-  "attachment",
-  "app_entry_by",
   "purchase_invoice",
+  "app_entry_by",
+  "column_break_dtyl",
+  "date",
+  "column_break_cxui",
+  "attachment",
   "journal_entry_id",
-  "section_break_paue",
   "payment_entry_id",
+  "section_break_paue",
   "party_type",
+  "column_break_veon",
   "party",
   "employee",
   "employee_name",
   "party_contact",
+  "column_break_yvci",
   "city",
+  "section_break_eznn",
   "party_balance",
+  "section_break_qcvx",
   "amount",
+  "section_break_beuq",
+  "entries",
+  "section_break_ztds",
   "total",
+  "column_break_yqdd",
   "notes",
-  "amended_from",
-  "column_break_mikd"
+  "amended_from"
  ],
  "fields": [
   {
@@ -145,13 +153,47 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_mikd",
+   "fieldname": "column_break_cxui",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_veon",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yvci",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_eznn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_qcvx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_beuq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "entries",
+   "fieldtype": "Table",
+   "label": "Entries",
+   "options": "Cash Entries"
+  },
+  {
+   "fieldname": "section_break_ztds",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_yqdd",
    "fieldtype": "Column Break"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-05 16:09:22.828636",
+ "modified": "2026-06-08 15:11:59.608484",
  "modified_by": "Administrator",
  "module": "Daybook",
  "name": "Daybook Cash",

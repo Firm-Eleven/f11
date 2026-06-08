@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-08 11:01:12.984853",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_jkvs",
+  "payment_mode",
+  "amount",
+  "bank_name",
+  "city",
+  "depositor_name",
+  "received_from",
+  "slip_attachment",
+  "payment_date",
+  "payment_entry_1",
+  "payment_entry_2"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_jkvs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Payment Mode",
+   "options": "\nOnline\nCash",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Amount",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "read_only": 1
+  },
+  {
+   "fieldname": "depositor_name",
+   "fieldtype": "Data",
+   "label": "Depositor Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "received_from",
+   "fieldtype": "Data",
+   "label": "Received From",
+   "read_only": 1
+  },
+  {
+   "fieldname": "slip_attachment",
+   "fieldtype": "Attach",
+   "label": "Slip Attachment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_date",
+   "fieldtype": "Date",
+   "label": "Payment Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_entry_1",
+   "fieldtype": "Link",
+   "label": "Payment Entry 1",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_entry_2",
+   "fieldtype": "Link",
+   "label": "Payment Entry 2",
+   "options": "Payment Entry",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-08 11:05:11.406568",
+ "modified_by": "Administrator",
+ "module": "Cheque Book",
+ "name": "Rejected Cheque Payments",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
