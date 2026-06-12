@@ -73,7 +73,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Type",
-   "options": "Expense\nPay\nReceive",
+   "options": "\nExpense\nPay\nReceive",
    "reqd": 1
   },
   {
@@ -125,7 +125,7 @@
    "fieldtype": "Select",
    "label": "Party Type",
    "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
-   "options": "\nCustomer\nSupplier\nEmployee"
+   "options": "\nCustomer\nSupplier"
   },
   {
    "depends_on": "eval:doc.party_type == \"Customer\" || doc.party_type == \"Supplier\"",
@@ -319,7 +319,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-08 14:53:53.659994",
+ "modified": "2026-06-12 16:12:11.810074",
  "modified_by": "Administrator",
  "module": "Daybook",
  "name": "Daybook Bank",

@@ -2,59 +2,47 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "naming_series:",
- "creation": "2026-06-05 16:02:28.599168",
+ "creation": "2026-06-09 10:52:48.116744",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "naming_series",
+  "section_break_pjhu",
   "type",
   "purchase_invoice",
   "app_entry_by",
-  "column_break_dtyl",
+  "amended_from",
+  "column_break_ymfl",
   "date",
-  "column_break_cxui",
+  "column_break_kumo",
+  "naming_series",
+  "column_break_ldbi",
   "attachment",
   "journal_entry_id",
   "payment_entry_id",
-  "section_break_paue",
+  "section_break_awlt",
   "party_type",
-  "column_break_veon",
+  "column_break_mknb",
   "party",
   "employee",
   "employee_name",
   "party_contact",
-  "column_break_yvci",
+  "column_break_fdbq",
   "city",
-  "section_break_eznn",
+  "section_break_mnkr",
   "party_balance",
-  "section_break_qcvx",
+  "section_break_rrtz",
   "amount",
-  "section_break_beuq",
+  "section_break_jzvi",
   "entries",
-  "section_break_ztds",
+  "section_break_oryo",
   "total",
-  "column_break_yqdd",
-  "notes",
-  "amended_from"
+  "column_break_uqje",
+  "notes"
  ],
  "fields": [
   {
-   "fieldname": "type",
-   "fieldtype": "Select",
-   "label": "Type",
-   "options": "\nExpense\nPay\nReceive"
-  },
-  {
-   "fieldname": "purchase_invoice",
-   "fieldtype": "Link",
-   "label": "Purchase Invoice Id",
-   "options": "Purchase Invoice"
-  },
-  {
-   "fieldname": "app_entry_by",
-   "fieldtype": "Link",
-   "label": "App Entry By",
-   "options": "User"
+   "fieldname": "section_break_pjhu",
+   "fieldtype": "Section Break"
   },
   {
    "default": "Today",
@@ -63,144 +51,215 @@
    "label": "Date"
   },
   {
-   "fieldname": "attachment",
-   "fieldtype": "Attach Image",
-   "label": "Attachment"
-  },
-  {
-   "fieldname": "journal_entry_id",
-   "fieldtype": "Link",
-   "label": "Journal Entry ID",
-   "options": "Journal Entry"
-  },
-  {
-   "fieldname": "payment_entry_id",
-   "fieldtype": "Link",
-   "label": "Payment Entry ID",
-   "options": "Payment Entry"
-  },
-  {
-   "fieldname": "party_type",
-   "fieldtype": "Select",
-   "label": "Party Type",
-   "options": "\nCustomer\nSupplier\nEmployee"
-  },
-  {
-   "fieldname": "party",
-   "fieldtype": "Dynamic Link",
-   "label": "Party",
-   "options": "party_type"
-  },
-  {
-   "fieldname": "employee",
-   "fieldtype": "Link",
-   "label": "Employee",
-   "options": "Employee"
-  },
-  {
-   "fieldname": "employee_name",
-   "fieldtype": "Data",
-   "label": "Employee Name"
-  },
-  {
-   "fieldname": "party_contact",
-   "fieldtype": "Data",
-   "label": "Party Contact"
-  },
-  {
-   "fieldname": "city",
-   "fieldtype": "Data",
-   "label": "City"
-  },
-  {
-   "fieldname": "party_balance",
-   "fieldtype": "Data",
-   "label": "Party Balance"
-  },
-  {
-   "fieldname": "amount",
-   "fieldtype": "Float",
-   "label": "Amount"
-  },
-  {
-   "fieldname": "total",
-   "fieldtype": "Float",
-   "label": "Total"
-  },
-  {
-   "fieldname": "notes",
-   "fieldtype": "Data",
-   "label": "Notes"
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
-   "options": "Daybook Cash"
+   "no_copy": 1,
+   "options": "Daybook Cash",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "\nExpense\nPay\nReceive",
+   "reqd": 1
+  },
+  {
+   "fieldname": "purchase_invoice",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Purchase Invoice Id",
+   "options": "Purchase Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "app_entry_by",
+   "fieldtype": "Link",
+   "label": "App Entry By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ymfl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_kumo",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Series",
-   "options": "ACC-DC-.YY.-"
+   "options": "ACC-DBE-.YYYY.-"
   },
   {
-   "fieldname": "column_break_dtyl",
+   "fieldname": "column_break_ldbi",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_paue",
+   "fieldname": "attachment",
+   "fieldtype": "Attach Image",
+   "label": "Attachment"
+  },
+  {
+   "depends_on": "eval:doc.type == \"Expense\" || doc.party_type == \"Employee\"",
+   "fieldname": "journal_entry_id",
+   "fieldtype": "Link",
+   "label": "Journal Entry ID",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_entry_id",
+   "fieldtype": "Link",
+   "label": "Payment Entry ID",
+   "options": "Payment Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_awlt",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_cxui",
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
+   "fieldname": "party_type",
+   "fieldtype": "Select",
+   "label": "Party Type",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
+   "options": "\nCustomer\nSupplier"
+  },
+  {
+   "fieldname": "column_break_mknb",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_veon",
+   "depends_on": "eval:doc.party_type == \"Customer\" || doc.party_type == \"Supplier\" && doc.type == \"Pay\" || doc.type == \"Receive\"",
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "mandatory_depends_on": "eval:doc.party_type == \"Customer\" || doc.party_type == \"Supplier\" && doc.type == \"Pay\" || doc.type == \"Receive\"",
+   "options": "party_type"
+  },
+  {
+   "depends_on": "eval:doc.type == \"Pay\" && doc.party_type == \"Employee\"",
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" && doc.party_type == \"Employee\"",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "party_contact",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Party Contact"
+  },
+  {
+   "fieldname": "column_break_fdbq",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_yvci",
-   "fieldtype": "Column Break"
+   "depends_on": "eval:doc.party",
+   "fetch_from": "party.city",
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "City"
   },
   {
-   "fieldname": "section_break_eznn",
+   "fieldname": "section_break_mnkr",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "section_break_qcvx",
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
+   "fieldname": "party_balance",
+   "fieldtype": "Data",
+   "label": "Party Balance",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_rrtz",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "section_break_beuq",
+   "depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\"",
+   "fieldname": "amount",
+   "fieldtype": "Float",
+   "label": "Amount",
+   "mandatory_depends_on": "eval:doc.type == \"Pay\" || doc.type == \"Receive\""
+  },
+  {
+   "fieldname": "section_break_jzvi",
    "fieldtype": "Section Break"
   },
   {
+   "depends_on": "eval:doc.type == \"Expense\"",
    "fieldname": "entries",
    "fieldtype": "Table",
    "label": "Entries",
+   "mandatory_depends_on": "eval:doc.type == \"Expense\"",
    "options": "Cash Entries"
   },
   {
-   "fieldname": "section_break_ztds",
+   "fieldname": "section_break_oryo",
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "column_break_yqdd",
+   "depends_on": "eval:doc.type == \"Expense\"",
+   "fieldname": "total",
+   "fieldtype": "Float",
+   "label": "Total",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_uqje",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Data",
+   "label": "Notes"
   }
  ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-06-08 15:11:59.608484",
+ "modified": "2026-06-12 16:48:58.229980",
  "modified_by": "Administrator",
  "module": "Daybook",
  "name": "Daybook Cash",
- "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
- "permissions": [],
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
  "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
